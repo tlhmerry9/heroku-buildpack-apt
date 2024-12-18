@@ -153,7 +153,7 @@ if grep -qw "git" "${BUILD_DIR}/Aptfile"; then
     # if [[ -d "$GIT_CORE_DIR" && "$(ls -A "GIT_CORE_DIR")" ]]; then
     if [[ -d "$GIT_CORE_DIR" ]]; then
       topic "Setting GIT_EXEC_PATH to $GIT_CORE_DIR"
-      echo "export GIT_EXEC_PATH=$GIT_CORE_DIR" >> "$BUILD_DIR/.profile.d/000_apt.sh"
+      echo "export GIT_EXEC_PATH=$\$HOME/.apt/usr/lib/git-core" >> "$BUILD_DIR/.profile.d/000_apt.sh"
       export GIT_EXEC_PATH=$GIT_CORE_DIR
     else
       topic "Git core directory $GIT_CORE_DIR is either missing or empty.  Skipping GIT_EXEC_PATH setup."
