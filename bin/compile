@@ -149,7 +149,7 @@ if grep -qw "git" "${BUILD_DIR}/Aptfile"; then
   if command -v git >/dev/null 2>&1; then
     topic "Git installed successfully.  Verifying GIT_EXEC_PATH."
 
-    GIT_CORE_DIR="${BUILD_DIR}/.apt/usr/lib/git-core"
+    GIT_CORE_DIR="/app/.apt/usr/lib/git-core"
     if [[ -d "$GIT_CORE_DIR" && "$(ls -A "GIT_CORE_DIR")" ]]; then
       topic "Setting GIT_EXEC_PATH to $GIT_CORE_DIR"
       echo "export GIT_EXEC_PATH=$GIT_CORE_DIR" >> "$BUILD_DIR/.profile.d/000_apt.sh"
