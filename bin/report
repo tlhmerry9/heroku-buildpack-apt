@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
-# bin/report <build-dir> <cache-dir> <env-dir>
+# Script:  report
+# Description:  Generates a report of packages and custom repositories from an Aptfile
+# Usage:  bin/report <build-dir> <cache-dir> <env-dir>
 
 ### Configure environment
 
+# set strict error handling
 set -o errexit    # always exit on error
 set -o pipefail   # don't ignore exit codes when piping output
 
+# initialize variables
 BUILD_DIR=${1:-}
-
 packages=()
 custom_packages=()
 custom_repositories=()
 
+# parse the Aptfile
 while IFS= read -r line; do
   if grep --silent -e "^:repo:" <<< "${line}"; then
     custom_repositories+=("${line//:repo:/}")

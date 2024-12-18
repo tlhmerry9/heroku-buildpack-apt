@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# bin/detect <build-dir>
+# Script:  detect
+# Description:  Detects the presence of an Aptfile in the build directory
+# Usage:  bin/detect <build-dir>
 
 if [[ -f "$1/Aptfile" ]]; then
   echo "Apt"

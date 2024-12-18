@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Script:  release
+# Description:  Outputs a YAML structure for release configuration
+# Usage: ./release
 
 cat <<EOF
 ---
